@@ -5,15 +5,14 @@ import fs from 'fs';
 import { extractPrompt } from './const';
 
 const app = express();
-const router = express.Router();
 
 app.use(express.json());
 
-router.get("/", function(req, res) {
-    return res.send("Hello World");
+app.get("/", function(req, res) {
+    return res.send("Express is running....");
 });
 
-router.post('/scan-document', async (req, res) => {
+app.post('/scan-document', async (req, res) => {
   try {
     req.setTimeout(500000);
     const imagePath = './assets/receipt1.png';
@@ -27,8 +26,6 @@ router.post('/scan-document', async (req, res) => {
     res.status(500).send({ error: error.message });
   }
 });
-
-app.use('/api', router);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
