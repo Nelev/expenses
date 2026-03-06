@@ -4,13 +4,28 @@
   "description": "upload recepiets and track expenses",
   "license": "ISC",
   "author": "masm",
-  "type": "module",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "ts-node src/server.ts",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/server.ts",
+    "lint": "eslint 'src/**/*.ts'"
   },
   "dependencies": {
-    "express": "^5.2.1",
     "ollama": "^0.6.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.3.5",
+    "dotenv": "^17.3.1",
+    "eslint": "^10.0.2",
+    "express": "^5.2.1",
+    "install": "^0.13.0",
+    "nodemon": "^3.1.14",
+    "npm": "^11.11.0",
+    "prettier": "^3.8.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.3"
   }
 }

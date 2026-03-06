@@ -2,12 +2,16 @@ import express from 'express';
 import ollama from 'ollama';
 import fs from 'fs';
 
-import { extractPrompt } from './const.ts';
+import { extractPrompt } from './const';
 
 const app = express();
 const router = express.Router();
 
 app.use(express.json());
+
+router.get("/", function(req, res) {
+    return res.send("Hello World");
+});
 
 router.post('/scan-document', async (req, res) => {
   try {
@@ -19,7 +23,7 @@ router.post('/scan-document', async (req, res) => {
       messages: [{ role: 'user', content: extractPrompt, images: [imageBase64] }],
     });
     res.json({ reply: response.message.content });
-  } catch (error) {
+  } catch (error: any) {
     res.status(500).send({ error: error.message });
   }
 });
