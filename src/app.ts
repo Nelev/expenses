@@ -10,6 +10,10 @@ app.use(express.json());
 // Routes
 app.use('/api', routes);
 
+app.get('/', (_req, res) => {
+  res.status(200).json({ message: 'Welcome to the Expenses API' });
+});
+
 // Health check
 app.get('/health', (_req, res) => {
   res.status(200).json({ status: 'ok' });
