@@ -1,4 +1,4 @@
-const extractPrompt: string = `You are a receipt parsing assistant. Extract all line items from the receipt image.
+export const extractPrompt: string = `You are a receipt parsing assistant. Extract all line items from the receipt image.
     For each line item, extract the name, quantity, unit price, and total price.
     Quantity can be a decimal number (e.g. weight in kg like 0.550 or 1.105).
     Extract the subtotal which is the final total amount shown on the receipt.
@@ -14,5 +14,3 @@ const extractPrompt: string = `You are a receipt parsing assistant. Extract all 
     First, detect which format the receipt uses by examining the numbers on it.
     Then, always output numbers in the JSON using a period as the decimal separator.
     For example: 7499.00, not 7.499,00 or 7,499.00.`;
-
-export { extractPrompt };
