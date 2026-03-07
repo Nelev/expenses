@@ -1,10 +1,11 @@
 import fs from 'fs';
 import { extractPrompt } from '../prompts/index';
+import path from 'path';
 
 
 export const processDocument = async (): Promise<any> => {
   try {
-    const imagePath = './assets/receipt1.png';
+    const imagePath = path.join(process.cwd(), "public", "receipt1.png");
     const modelUrl = process.env.MODEL_URL ?? "http://model:11434";
     const imageBase64 = fs.readFileSync(imagePath, { encoding: 'base64' });
      const response = await fetch(`${modelUrl}/api/generate`, {
