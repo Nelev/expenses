@@ -7,7 +7,9 @@ After cloning the project run:
 docker compose --build
 
 should start 2 docker containers running:
- - api in node.js
- - model
+ - express server
+ - model ( locally ) with ollama
+
+
 
 
