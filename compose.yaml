@@ -1,0 +1,28 @@
+services:
+  api:
+    build: .
+    container_name: expenses-api
+    ports:
+      - "3000:3000"
+    environment:
+      - MODEL_URL=http://model:11434
+    depends_on:
+      - model
+    networks:
+      - ai-net
+
+  model:
+    image: ollama/ollama:latest
+    container_name: llama-model
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      - ai-net
+
+networks:
+  ai-net:
+
+volumes:
+  ollama-data:

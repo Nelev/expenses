@@ -1,16 +1,14 @@
-FROM node:18
+FROM node:20
 
-WORKDIR /usr/src/app
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
 
 COPY . .
-
-# Install ALL dependencies, including devDependencies
-RUN npm install
 
 RUN npm run build
 
 EXPOSE 3000
 
-COPY . .
-
-CMD ["npm", "start"]
+CMD ["node", "dist/server.js"]
