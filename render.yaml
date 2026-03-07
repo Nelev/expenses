@@ -1,0 +1,17 @@
+services:
+  - name: expenses-api
+    type: web
+    env: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      AI_MODEL_URL: http://ollama-model:11434
+      AI_MODEL_NAME: llama3.2-vision
+    plan: starter
+    autoDeploy: true
+
+  - name: ollama-model
+    type: worker
+    env: docker
+    dockerfilePath: ./Dockerfile.ollama
+    plan: starter
+    autoDeploy: true

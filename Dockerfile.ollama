@@ -1,0 +1,6 @@
+FROM ollama/ollama:latest
+
+# Auto-pull your model
+RUN ollama pull llama3.2-vision
+
+CMD ["ollama", "serve"]
