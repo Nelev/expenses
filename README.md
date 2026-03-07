@@ -1,5 +1,13 @@
-Node.js application that uses local LLM models to analyze receipts images and returns the content
+Node.js application that uses local dockerized LLM models to analyze receipts images and returns the content
 
-run:
+Requires: Docker
 
-node server.js
+After cloning the project run:
+
+docker compose --build
+
+should start 2 docker containers running:
+ - api in node.js
+ - model
+
+
